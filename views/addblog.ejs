@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Add Blogs</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <style>
+      .ck-editor__editable {
+          min-height: 300px;
+          color: darkslategrey;
+      }
+    </style>
+  </head>
+  <body data-bs-theme="dark">
+    <!-- navbar -->
+    <%- include('./partials/navbar') %>
+    <div class="container mt-3">
+      <h1 class="text-center">ADD NEW POST</h1>
+      <div class="container">
+        <form action="/blog/addnew" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <div class="mb-3">
+              <label for="coverImageUrl" class="form-label">CoverImage</label>
+              <input
+                class="form-control"
+                type="file"
+                id="coverImageUrl"
+                name="coverImageUrl"
+                accept="image/*"
+              />
+            </div>
+            <label for="title" class="form-label">Title *</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              aria-describedby="emailHelp"
+              placeholder="Enter your Title here"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              name="description"
+              placeholder="Description here..."
+            />
+          </div>
+          <div class="mb-3">
+            <label for="body">Content /Body *</label>
+            <textarea
+              class="form-control"
+              placeholder="This is the content of the new blog post."
+              id="body"
+              name="body"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <%- include('./partials/script') %>
+    <script>
+      ClassicEditor.create(document.querySelector("#body")).catch((error) => {
+        console.error(error);
+      });
+    </script>
+  </body>
+</html>

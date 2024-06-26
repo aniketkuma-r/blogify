@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title><%= user.fullName %></title>
+    <style>
+        .profile-header {
+          text-align: center;
+          margin: 20px 0;
+        }
+        .profile-photo {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 2px solid #007bff;
+        }
+        .profile-info {
+          text-align: center;
+          margin-top: 10px;
+        }
+        .profile-info h2 {
+          margin: 10px 0;
+        }
+        .edit-profile-btn {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+        }
+      </style>
+  </head>
+  <body data-bs-theme="dark">
+    <!-- navbar -->
+    <%- include('./partials/navbar') %>
+
+    <div class="container">
+      <div class="profile-header">
+        <img
+          src=<%= user.profileImageUrl %>
+          alt="Profile Photo"
+          class="profile-photo"
+        />
+        <div class="profile-info">
+          <h2><%= user.fullName %></h2>
+          <p><%= user.email %></p>
+        </div>
+        <div class="edit-profile-btn">
+          <button class="btn btn-primary">Edit Profile</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

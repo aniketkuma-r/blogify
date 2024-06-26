@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Sign Up</title>
+  </head>
+  <body data-bs-theme="dark">
+    <!-- navbar -->
+    <%- include('./partials/navbar') %>
+    <div class="container mt-3 w-50">
+        <h1 class="text-center">SIGN UP</h1>
+        <p class="text-center">
+          ALREADY HAVE AN ACCOUNT ? <a href="/auth/signin">SIGN IN</a>
+        </p>
+        <form action="/auth/signup" method="POST">
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name *</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fullName"
+              name="fullName"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address *</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              aria-describedby="emailHelp"
+              required
+            />
+            <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password *</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password *</label>
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <%- include('./partials/script') %>
+  </body>
+</html>
